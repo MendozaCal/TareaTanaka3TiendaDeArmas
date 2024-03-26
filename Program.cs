@@ -10,6 +10,9 @@ namespace TiendaDeArmas
     {
         static void Main(string[] args)
         {
+            Controller Controller = new Controller();
+            Controller.Execute();
+            Console.ReadLine();
         }
     }
 }
