@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,8 @@ namespace TiendaDeArmas
                 Console.WriteLine("1. Distancia");
                 Console.WriteLine("2. Melee");
                 Console.WriteLine("3. Ver inventario");
+                Console.WriteLine("4. Eliminar arma del inventario");
+                Console.WriteLine("5. Salir");
 
                 int option = int.Parse(Console.ReadLine());
 
@@ -78,39 +81,30 @@ namespace TiendaDeArmas
                         break;
                     case 3:
                         Console.WriteLine("Las armas en tu inventario son: ");
-                        foreach(var Armas in inventario)
+                        foreach (var Armas in inventario)
                         {
-                            Console.WriteLine(Armas.Name);
+                            int numlist = 1;
+                            numlist++;
+                            Console.WriteLine($"{numlist}. {Armas.Name}");
                         }
                         break;
-
+                    case 4:
+                        Console.WriteLine("Que arma deseas eliminar??");
+                        foreach (var Armas in inventario)
+                        {
+                            Console.WriteLine($"{Armas.Name}");
+                        }
+                        int resp = int.Parse(Console.ReadLine());
+                        Armas objetoAEliminar = inventario[resp];
+                        inventario.Remove(objetoAEliminar);
+                        break;
+                    case 5:
+                        continueFlag = false;
+                        break;
                     default:
                         Console.WriteLine("Opción inválida");
                         break;
                 }
-                Console.ReadLine();
-                bool validOption = false;
-                while (!validOption)
-                {
-                    Console.WriteLine("Elige una opción");
-                    Console.WriteLine("1. Volver a comprar");
-                    Console.WriteLine("2. Salir");
-                    string optionExit = Console.ReadLine();
-                    switch (optionExit)
-                    {
-                        case "1":
-                            validOption = true;
-                            break;
-                        case "2":
-                            continueFlag = false;
-                            validOption = true;
-                            break;
-                        default:
-                            Console.WriteLine("Opción inválida");
-                            break;
-                    }
-                }
-
             }
 
         }

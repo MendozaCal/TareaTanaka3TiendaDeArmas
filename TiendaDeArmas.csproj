@@ -46,7 +46,6 @@
     <Compile Include="Controller.cs" />
     <Compile Include="Armas.cs" />
     <Compile Include="HijosArmas\ArmasInfo.cs" />
-    <Compile Include="Inventario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
